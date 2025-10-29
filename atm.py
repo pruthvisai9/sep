@@ -42,3 +42,5 @@ if name==user_name  and  password==pass_word:
             break
 else:
     print("Invalid detailes")
+    print("Hii please Enter your valid detiales")
+
