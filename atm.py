@@ -1,46 +1,36 @@
-#simple Bank ATM
-
-a='''
-1.Deposit
-2.withdraw
-3.Balance Enquiry
-4.Exit
-'''
-name="pruthvi"
-password="12345"
-print("Welcome to PythonLife Bank ATM")
-user_name=input("Enter the user name:")
-pass_word=input("Enter the password:")
+#---->ATM Program without Functions---->
 balance=1000
-if name==user_name  and  password==pass_word:
+user_name=input("Enter username:")
+pin=int(input("Enter PIN Number:"))
+if user_name=="pruthvi" and pin==1234:
     while True:
-        print(a)
-        option=int(input("Enter your option:"))
-        if option==1:
-            credit_amount=float(input("Enter the amount:"))
-            if credit_amount<=0:
-                print("please enter a postitive amount")
+        print("=== Welcome to ManaCoders ATM===")
+        print("1.Check balance")
+        print("2.Deposit")
+        print("3.Withdraw")
+        print("4.Exit")
+        choice=int(input("Enter your choice:"))
+        if choice==1:
+            print(f"Your current Balance is:{balance}")
+        elif choice==2:
+            amount=float(input("Enter Deposit Amount:"))
+            if amount>0:
+                balance+=amount
+                print(f"Available Balance:{balance}")
             else:
-                balance+=credit_amount
-                print("Deposit successful,your new balance is:",balance)
-        elif option==2:
-            debit_amount=float(input("Enter the amount:"))
-            if debit_amount<=balance:
-                balance-=debit_amount
-                print("withdrawl successful,your new balance is:",balance)
+                print("Invalid Deposit Amount..Please Enter greater than zero")
+        elif choice==3:
+            amount=float(input("Enter withdrawl amount:"))
+            if amount<=balance:
+                balance-=amount
+                print(f"Available Balance :{balance}")
             else:
-                print("Insufficent funds")
-        elif option==3:
-            print("your current Balance is:",balance)
-
-        elif option ==4:
-            print("You are exited")
+                print("Insufficient Funds...")
+        elif choice==4:
+            print("Thank Your for using our ATM Services")
             break
-
         else:
-            print("Invalid transaction type")
-            break
+            print("Invalid Choice...please chooose (1-4)")
 else:
-    print("Invalid detailes")
-    print("Hii please Enter your valid detiales")
+    print("Authentication failed...Invalid username or pin")
 
